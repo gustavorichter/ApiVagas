@@ -10,7 +10,7 @@ class Database {
      * Host de conexão com o banco de dados.
      * @var string
      */
-    const HOST = '7e1040a34b4a';
+    const HOST = 'mysql-container';
 
     /**
      *
