@@ -22,7 +22,7 @@ services:
     volumes:
       - .docker/db:/var/lib/mysql
     ports:
-      - 9080:9080
+      - 3306:3306
     environment:
       MYSQL_USER: root
       MYSQL_PASSWORD: root
