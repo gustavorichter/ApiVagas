@@ -1,6 +1,12 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
 
-require_once __DIR__ . '/vendor/autoload.php';
+$app = new \Slim\App;
+
+$app->get('/', function ($request, $response, $args) {
+    $response->getBody()->write("Hello, world!");
+    return $response;
+});
 
 use \App\Entity\Vaga;
 use \App\Db\Pagination;
@@ -36,6 +42,8 @@ $obPagination = new Pagination($quantidadeDeVagas ,$_GET['pagina'] ?? 1, 5);
 
 //Obtem as vagas
 $vagas = Vaga::getVagas($where, null, $obPagination->getLimit());
+
+$app->run();
 
 include_once __DIR__ . '/includes/header.php';
 include_once __DIR__ . '/includes/listagem.php';

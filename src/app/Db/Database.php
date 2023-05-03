@@ -10,13 +10,13 @@ class Database {
      * Host de conexão com o banco de dados.
      * @var string
      */
-    const HOST = 'localhost';
+    const HOST = '7e1040a34b4a';
 
     /**
      *
      * @var string
      */
-    const NAME = 'wdev_vagas';
+    const NAME = 'vagas';
 
     /**
      *
@@ -28,7 +28,7 @@ class Database {
      *
      * @var string
      */
-    const PASS = 'Asdf000_';
+    const PASS = 'root';
 
     /**
      *Nome da tabela a ser manipulada
@@ -56,10 +56,11 @@ class Database {
      */
     private function setConnection() {
         try{
-            $this->connection = new PDO('mysql:host='.self::HOST.';dbname='.self::NAME,self::USER,self::PASS);
+            $this->connection = new PDO('mysql:host='.self::HOST.';
+            dbname='.self::NAME,self::USER,self::PASS,array(PDO::ATTR_PERSISTENT => true));
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        }catch(PDOException $e) {
-            die('ERROR: '.$e->getMessage());
+        } catch (PDOException $e) {
+            throw $e;
         }
     }
 

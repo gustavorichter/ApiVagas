@@ -40,7 +40,7 @@ class Vaga {
     public function cadastrar() {
         $this->data = date('Y-m-d H:i:s');
 
-        $obDadatabase = new Database('vagas');
+        $obDadatabase = new Database('vaga');
         $this-> id = $obDadatabase->insert([
             'titulo' => $this->titulo,
             'descricao' => $this->descricao,
@@ -58,7 +58,7 @@ class Vaga {
      * @return Boolean
      */
     public function atualizar() {
-        return (new Database('vagas'))->update('id = '.$this->id, [
+        return (new Database('vaga'))->update('id = '.$this->id, [
             'titulo' => $this->titulo,
             'descricao' => $this->descricao,
             'ativo' => $this->ativo,
@@ -71,7 +71,7 @@ class Vaga {
      * @return boolean
      */
     public function excluir() {
-        return (new Database('vagas'))->delete('id = '.$this->id);
+        return (new Database('vaga'))->delete('id = '.$this->id);
     }
 
     /**
@@ -82,7 +82,7 @@ class Vaga {
      * @return array
      */
     public static function getVagas($where = null, $order = null, $limit = null) {
-        return (new Database('vagas'))->select($where, $order, $limit)
+        return (new Database('vaga'))->select($where, $order, $limit)
             ->fetchAll(PDO::FETCH_CLASS, self::class);
     }
 
@@ -92,7 +92,7 @@ class Vaga {
      * @return array
      */
     public static function getQuantidadeVagas($where = null) {
-        return (new Database('vagas'))->select($where, null, null, 'COUNT(*) AS qtd')
+        return (new Database('vaga'))->select($where, null, null, 'COUNT(*) AS qtd')
             ->fetchObject()
             ->qtd;
     }
@@ -103,7 +103,7 @@ class Vaga {
      * @return Vaga
      */
     public static function getVaga($id) {
-        return (new Database('vagas'))->select('id = '.$id)
+        return (new Database('vaga'))->select('id = '.$id)
             ->fetchObject(self::class);
     }
 }
