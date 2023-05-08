@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace src\Entity;
 
-use App\Db\Database;
+use src\Db\Database;
 
 use \PDO;
 

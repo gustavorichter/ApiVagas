@@ -4,13 +4,17 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite83c58b7d000d9f9e1f06c89b420b5c8
+class ComposerStaticInit9f6700873eed91917b6ead26485be2cf
 {
     public static $files = array (
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        's' => 
+        array (
+            'src\\' => 4,
+        ),
         'S' => 
         array (
             'Slim\\' => 5,
@@ -28,13 +32,13 @@ class ComposerStaticInite83c58b7d000d9f9e1f06c89b420b5c8
         array (
             'FastRoute\\' => 10,
         ),
-        'A' => 
-        array (
-            'App\\' => 4,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'src\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'Slim\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/slim/Slim',
@@ -55,10 +59,6 @@ class ComposerStaticInite83c58b7d000d9f9e1f06c89b420b5c8
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
         ),
-        'App\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app',
-        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -78,10 +78,10 @@ class ComposerStaticInite83c58b7d000d9f9e1f06c89b420b5c8
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInite83c58b7d000d9f9e1f06c89b420b5c8::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInite83c58b7d000d9f9e1f06c89b420b5c8::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInite83c58b7d000d9f9e1f06c89b420b5c8::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInite83c58b7d000d9f9e1f06c89b420b5c8::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit9f6700873eed91917b6ead26485be2cf::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit9f6700873eed91917b6ead26485be2cf::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit9f6700873eed91917b6ead26485be2cf::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit9f6700873eed91917b6ead26485be2cf::$classMap;
 
         }, null, ClassLoader::class);
     }
