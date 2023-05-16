@@ -16,7 +16,8 @@ class ApiKeyMiddleware {
         $isValidApi = new AbstractService;
         $apiKey = $request->getHeaderLine('X-Api-Key');
         if (!$isValidApi->isValidApiKey($apiKey)) {
-            return $response->withStatus(401);
+            $responseData = ['error' => 'X-Api-Key inválida'];
+            return $response->withJson($responseData, 401);
         }
         $response = $next($request, $response);
         return $response;
