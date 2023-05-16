@@ -1,8 +1,8 @@
 <?php
 
-namespace src\Entity;
+namespace Src\Entity;
 
-use src\Db\Database;
+use Src\Db\Database;
 
 use \PDO;
 
@@ -41,7 +41,7 @@ class Vaga {
         $this->data = date('Y-m-d H:i:s');
 
         $obDadatabase = new Database('vaga');
-        $this-> id = $obDadatabase->insert([
+        $this->id = $obDadatabase->insert([
             'titulo' => $this->titulo,
             'descricao' => $this->descricao,
             'ativo' => $this->ativo,
@@ -52,13 +52,13 @@ class Vaga {
         // echo "</pre>";
         return true;
     }
-    
+
     /**
-     * Método responsável por atualziar a vaga do banco 
+     * Método responsável por atualziar a vaga do banco
      * @return Boolean
      */
     public function atualizar() {
-        return (new Database('vaga'))->update('id = '.$this->id, [
+        return (new Database('vaga'))->update('id = ' . $this->id, [
             'titulo' => $this->titulo,
             'descricao' => $this->descricao,
             'ativo' => $this->ativo,
@@ -71,14 +71,14 @@ class Vaga {
      * @return boolean
      */
     public function excluir() {
-        return (new Database('vaga'))->delete('id = '.$this->id);
+        return (new Database('vaga'))->delete('id = ' . $this->id);
     }
 
     /**
      * Metodo responsavel por obter as vagas do banco de dados
      * @param string $where
      * @param string $order
-     * @param string @limit 
+     * @param string @limit
      * @return array
      */
     public static function getVagas($where = null, $order = null, $limit = null) {
@@ -103,7 +103,7 @@ class Vaga {
      * @return Vaga
      */
     public static function getVaga($id) {
-        return (new Database('vaga'))->select('id = '.$id)
+        return (new Database('vaga'))->select('id = ' . $id)
             ->fetchObject(self::class);
     }
 }

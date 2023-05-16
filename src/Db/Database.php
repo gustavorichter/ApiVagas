@@ -1,6 +1,6 @@
 <?php
 
-namespace src\Db;
+namespace Src\Db;
 
 use \PDO;
 use PDOException;
@@ -22,7 +22,7 @@ class Database {
      *
      * @var string
      */
-    CONST USER = 'root';
+    const USER = 'root';
 
     /**
      *
@@ -55,9 +55,9 @@ class Database {
      * Método responsavel por criar uma conexão com o banco de dados
      */
     private function setConnection() {
-        try{
-            $this->connection = new PDO('mysql:host='.self::HOST.';
-            dbname='.self::NAME,self::USER,self::PASS,array(PDO::ATTR_PERSISTENT => true));
+        try {
+            $this->connection = new PDO('mysql:host=' . self::HOST . ';
+            dbname=' . self::NAME, self::USER, self::PASS, array(PDO::ATTR_PERSISTENT => true));
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             throw $e;
@@ -71,12 +71,12 @@ class Database {
      * @return PDOStatement
      */
     public function execute($query, $params = []) {
-        try{
+        try {
             $statement = $this->connection->prepare($query);
             $statement->execute($params);
             return $statement;
-        }catch(PDOException $e) {
-            die('ERROR: '.$e->getMessage());
+        } catch (PDOException $e) {
+            die('ERROR: ' . $e->getMessage());
         }
     }
 
@@ -90,7 +90,7 @@ class Database {
         $binds = array_pad([], count($fields), '?');
 
         //Monta a query
-        $query = 'INSERT INTO '.$this->table.' ('.implode(',', $fields).') VALUES ('.implode(',', $binds).')';
+        $query = 'INSERT INTO ' . $this->table . ' (' . implode(',', $fields) . ') VALUES (' . implode(',', $binds) . ')';
 
         //Executa o INSERT
         $this->execute($query, array_values($values));
@@ -107,11 +107,11 @@ class Database {
      * @return PDOStatement
      */
     public function select($where = null, $order = null, $limit = null, $fields = '*') {
-        $where = strlen($where) ? 'WHERE '.$where : '';
-        $order = strlen($order) ? 'ORDER BY '.$order : '';
-        $limit = strlen($limit) ? 'LIMIT '.$limit : '';
+        $where = strlen($where) ? 'WHERE ' . $where : '';
+        $order = strlen($order) ? 'ORDER BY ' . $order : '';
+        $limit = strlen($limit) ? 'LIMIT ' . $limit : '';
 
-        $query = 'SELECT '.$fields.' FROM '.$this->table.' '.$where.' '.$order.' '.$limit;
+        $query = 'SELECT ' . $fields . ' FROM ' . $this->table . ' ' . $where . ' ' . $order . ' ' . $limit;
 
         return $this->execute($query);
     }
@@ -127,7 +127,7 @@ class Database {
         $fields = array_keys($values);
 
         //Monta a Query
-        $query = 'UPDATE '.$this->table.' SET '.implode('=?,', $fields). '=? WHERE '.$where;
+        $query = 'UPDATE ' . $this->table . ' SET ' . implode('=?,', $fields) . '=? WHERE ' . $where;
 
         //Executa a Query
         $this->execute($query, array_values($values));
@@ -137,12 +137,12 @@ class Database {
 
     /**
      * Método responsável por excluir  os dados do banco
-     * @param 
+     * @param
      * @return
      */
     public function delete($where) {
         //Monta a query de exclusão
-        $query = 'DELETE FROM '.$this->table.' WHERE '. $where;
+        $query = 'DELETE FROM ' . $this->table . ' WHERE ' . $where;
 
         //Executa a query
         $this->execute($query);
