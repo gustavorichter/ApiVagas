@@ -7,9 +7,9 @@ use Src\Db\Database;
 
 class AbstractController {
 
-	public function usuarios() {
-		$teste = new Vaga();
-		$vagas = $teste->getVagas();
+	public function vagas() {
+		$ObjVaga = new Vaga();
+		$vagas = $ObjVaga->getVagas();
 
 		return $vagas;
 	}
