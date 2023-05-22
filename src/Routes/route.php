@@ -4,6 +4,8 @@ namespace Src\Routes;
 
 use Src\Controllers\AbstractController;
 use Src\Providers\ApiKeyMiddleware;
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
 
 $app = new \Slim\App;
 $app->group('/api', function () use ($app) {
@@ -14,8 +16,12 @@ $app->group('/api', function () use ($app) {
         return $response->withJson($user, 200);
     });
 
-    $app->post('/novaVaga', function ($request, $response, $args) {
-        
+    $app->post('/novaVaga', function (Request $request, Response $response) {
+        $data = $request->getParsedBody();
+        $obj = new AbstractController();
+
+        $retorno = $obj->salvarVaga($data);
+        return $response->withJson($retorno, 200);
     });
 })->add(new ApiKeyMiddleware());
 

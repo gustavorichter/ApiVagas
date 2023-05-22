@@ -47,9 +47,6 @@ class Vaga {
             'ativo' => $this->ativo,
             'data' => $this->data
         ]);
-        // echo "<pre>";
-        // print_r($this);
-        // echo "</pre>";
         return true;
     }
 
