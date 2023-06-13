@@ -69,5 +69,3 @@ class ApiRoutes {
 		$app->run();
 	}
 }
-
-$apiRoutes = new ApiRoutes();
