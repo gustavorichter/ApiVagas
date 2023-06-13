@@ -67,8 +67,8 @@ class Vaga {
      * Método responsavel por excluir a vaga
      * @return boolean
      */
-    public function excluir() {
-        return (new Database('vaga'))->delete('id = ' . $this->id);
+    public function excluir($id) {
+        return (new Database('vaga'))->delete('id = ' . $id);
     }
 
     /**

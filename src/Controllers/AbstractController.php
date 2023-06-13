@@ -21,6 +21,13 @@ class AbstractController {
 		return $vagas;
 	}
 
+	public function excluirVaga($id) {
+		$ObjVaga = new Vaga();
+		$vagas = $ObjVaga->excluir($id);
+
+		return $vagas;
+	}
+
 	public function editarVaga($id, $data) {
 		$ObjVaga = new Vaga();
 		$vagas = $ObjVaga->atualizar($id, $data);

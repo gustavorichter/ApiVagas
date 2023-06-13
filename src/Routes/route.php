@@ -40,13 +40,25 @@ class ApiRoutes {
                 return $response->withJson($retorno, 200);
             });
 
-            $app->get('/vagas/{id}', function (Request $request, Response $response, array $args) {
+            $app->get('/vaga/{id}', function (Request $request, Response $response, array $args) {
                 $id = $args['id'];
                 $obj = new AbstractController();
 
                 $vaga = $obj->getVaga($id);
                 if ($vaga) {
                     return $response->withJson($vaga, 200);
+                } else {
+                    return $response->withStatus(404)->withJson(['message' => 'Vaga não encontrada']);
+                }
+            });
+
+			$app->delete('/vaga/{id}', function (Request $request, Response $response, array $args) {
+                $id = $args['id'];
+                $obj = new AbstractController();
+
+                $retorno = $obj->excluirVaga($id);
+                if ($retorno) {
+                    return $response->withJson(['message' => 'Vaga excluída com sucesso'], 200);
                 } else {
                     return $response->withStatus(404)->withJson(['message' => 'Vaga não encontrada']);
                 }
