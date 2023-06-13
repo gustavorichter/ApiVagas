@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Src\\Routes\\ApiRoutes' => $baseDir . '/Routes/Route.php',
     'App\\Entity\\Usuario' => $baseDir . '/Entity/Usuario.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Src\\Controllers\\AbstractController' => $baseDir . '/Controllers/AbstractController.php',
@@ -15,5 +16,4 @@ return array(
     'Src\\Providers\\AbstractService' => $baseDir . '/Providers/AbstractService.php',
     'Src\\Providers\\ApiKeyMiddleware' => $baseDir . '/Providers/ApiKeyMiddleware.php',
     'Src\\Session\\Login' => $baseDir . '/Session/Login.php',
-    'Src\\Routes\\Route' => $baseDir . '/Routes/Route.php',
 );

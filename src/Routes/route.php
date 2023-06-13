@@ -4,25 +4,36 @@ namespace Src\Routes;
 
 use Src\Controllers\AbstractController;
 use Src\Providers\ApiKeyMiddleware;
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use \Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ResponseInterface as Response;
+use Slim\App;
 
-$app = new \Slim\App;
-$app->group('/api', function () use ($app) {
+class ApiRoutes {
+	public function __construct() {
+        $this->registerRoutes();
+    }
 
-    $app->get('/vagas', function ($request, $response, $args) {
-        $ObjVaga = new AbstractController();
-        $user = $ObjVaga->vagas();
-        return $response->withJson($user, 200);
-    });
+	public function registerRoutes() {
+		$app = new App;
 
-    $app->post('/novaVaga', function (Request $request, Response $response) {
-        $data = $request->getParsedBody();
-        $obj = new AbstractController();
+		$app->group('/api', function () use ($app) {
+			$app->get('/vagas', function (Request $request, Response $response, array $args) {
+				$objVaga = new AbstractController();
+				$user = $objVaga->vagas();
+				return $response->withJson($user, 200);
+			});
 
-        $retorno = $obj->salvarVaga($data);
-        return $response->withJson($retorno, 200);
-    });
-})->add(new ApiKeyMiddleware());
+			$app->post('/novaVaga', function (Request $request, Response $response) {
+				$data = $request->getParsedBody();
+				$obj = new AbstractController();
 
-$app->run();
+				$retorno = $obj->salvarVaga($data);
+				return $response->withJson($retorno, 200);
+			});
+		})->add(new ApiKeyMiddleware());
+
+		$app->run();
+	}
+}
+
+$apiRoutes = new ApiRoutes();

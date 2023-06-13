@@ -72,6 +72,7 @@ class ComposerStaticInit239dd84ed829e5a997ec05051783a085
     );
 
     public static $classMap = array (
+        'Src\\Routes\\ApiRoutes' => __DIR__ . '/../..' . '/Routes/Route.php',
         'App\\Entity\\Usuario' => __DIR__ . '/../..' . '/Entity/Usuario.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Src\\Controllers\\AbstractController' => __DIR__ . '/../..' . '/Controllers/AbstractController.php',
@@ -81,7 +82,6 @@ class ComposerStaticInit239dd84ed829e5a997ec05051783a085
         'Src\\Providers\\AbstractService' => __DIR__ . '/../..' . '/Providers/AbstractService.php',
         'Src\\Providers\\ApiKeyMiddleware' => __DIR__ . '/../..' . '/Providers/ApiKeyMiddleware.php',
         'Src\\Session\\Login' => __DIR__ . '/../..' . '/Session/Login.php',
-        'Src\\Routes\\Route' => __DIR__ . '/../..' . '/Routes/Route.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
