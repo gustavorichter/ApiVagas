@@ -3,7 +3,7 @@
         'name' => 'wdev/vagas',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '2a0c88ac858c081e37c5c14bace44969f66ff818',
+        'reference' => '0cf93b879959ecadd7286f9a93d3b97a49d91da1',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -67,7 +67,7 @@
         'wdev/vagas' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '2a0c88ac858c081e37c5c14bace44969f66ff818',
+            'reference' => '0cf93b879959ecadd7286f9a93d3b97a49d91da1',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

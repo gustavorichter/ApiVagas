@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit9f6700873eed91917b6ead26485be2cf
+class ComposerStaticInit239dd84ed829e5a997ec05051783a085
 {
     public static $files = array (
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
@@ -72,16 +72,25 @@ class ComposerStaticInit9f6700873eed91917b6ead26485be2cf
     );
 
     public static $classMap = array (
+        'App\\Entity\\Usuario' => __DIR__ . '/../..' . '/Entity/Usuario.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Src\\Controllers\\AbstractController' => __DIR__ . '/../..' . '/Controllers/AbstractController.php',
+        'Src\\Db\\Database' => __DIR__ . '/../..' . '/Db/Database.php',
+        'Src\\Db\\Pagination' => __DIR__ . '/../..' . '/Db/Pagination.php',
+        'Src\\Entity\\Vaga' => __DIR__ . '/../..' . '/Entity/Vaga.php',
+        'Src\\Providers\\AbstractService' => __DIR__ . '/../..' . '/Providers/AbstractService.php',
+        'Src\\Providers\\ApiKeyMiddleware' => __DIR__ . '/../..' . '/Providers/ApiKeyMiddleware.php',
+        'Src\\Session\\Login' => __DIR__ . '/../..' . '/Session/Login.php',
+        'Src\\Routes\\Route' => __DIR__ . '/../..' . '/Routes/Route.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit9f6700873eed91917b6ead26485be2cf::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit9f6700873eed91917b6ead26485be2cf::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit9f6700873eed91917b6ead26485be2cf::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit9f6700873eed91917b6ead26485be2cf::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit239dd84ed829e5a997ec05051783a085::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit239dd84ed829e5a997ec05051783a085::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit239dd84ed829e5a997ec05051783a085::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit239dd84ed829e5a997ec05051783a085::$classMap;
 
         }, null, ClassLoader::class);
     }

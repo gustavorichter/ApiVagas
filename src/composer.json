@@ -1,9 +1,18 @@
 {
-    "name": "wdev/vagas",
+    "name": "dev/vagas",
     "autoload": {
         "psr-4": {
             "src\\": "src/"
-        }
+        },
+        "classmap": [
+            "Controllers",
+            "Db",
+            "Entity",
+            "includes",
+            "Providers",
+            "Routes",
+            "Session"
+        ]
     },
     "require": {
         "slim/slim": "3.0"
