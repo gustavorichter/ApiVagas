@@ -30,6 +30,28 @@ class ApiRoutes {
 				$retorno = $obj->salvarVaga($data);
 				return $response->withJson($retorno, 200);
 			});
+
+			$app->put('/vagas/{id}', function (Request $request, Response $response, array $args) {
+                $id = $args['id'];
+                $data = $request->getParsedBody();
+                $obj = new AbstractController();
+
+                $retorno = $obj->editarVaga($id, $data);
+                return $response->withJson($retorno, 200);
+            });
+
+            $app->get('/vagas/{id}', function (Request $request, Response $response, array $args) {
+                $id = $args['id'];
+                $obj = new AbstractController();
+
+                $vaga = $obj->getVaga($id);
+                if ($vaga) {
+                    return $response->withJson($vaga, 200);
+                } else {
+                    return $response->withStatus(404)->withJson(['message' => 'Vaga não encontrada']);
+                }
+            });
+
 		})->add(new ApiKeyMiddleware());
 
 		$app->run();

@@ -14,6 +14,20 @@ class AbstractController {
 		return $vagas;
 	}
 
+	public function GetVaga($id) {
+		$ObjVaga = new Vaga();
+		$vagas = $ObjVaga->getVaga($id);
+
+		return $vagas;
+	}
+
+	public function editarVaga($id, $data) {
+		$ObjVaga = new Vaga();
+		$vagas = $ObjVaga->atualizar($id, $data);
+
+		return $vagas;
+	}
+
 	public function salvarVaga($data) {
 		$titulo = $data['titulo'];
         $descricao = $data['descricao'];

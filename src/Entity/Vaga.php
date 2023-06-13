@@ -54,12 +54,12 @@ class Vaga {
      * Método responsável por atualziar a vaga do banco
      * @return Boolean
      */
-    public function atualizar() {
-        return (new Database('vaga'))->update('id = ' . $this->id, [
-            'titulo' => $this->titulo,
-            'descricao' => $this->descricao,
-            'ativo' => $this->ativo,
-            'data' => $this->data
+    public function atualizar($id, $data) {
+        return (new Database('vaga'))->update('id = ' . $id, [
+            'titulo' => $data['titulo'],
+            'descricao' => $data['descricao'],
+            'ativo' => $data['ativo'],
+            'data' => $data['data']
         ]);
     }
 
