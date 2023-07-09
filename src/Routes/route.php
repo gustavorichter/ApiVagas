@@ -68,6 +68,7 @@ class ApiRoutes {
         $corsMiddleware = function (Request $request, Response $response, $next) {
             // Adiciona os cabeçalhos CORS
             $response = $response
+                ->withHeader('X-Type', 'api')
                 ->withHeader('Access-Control-Allow-Origin', 'http://localhost:8080')
                 ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
                 ->withHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Api-Key');
