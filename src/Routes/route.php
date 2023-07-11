@@ -16,6 +16,26 @@ class ApiRoutes {
     public function registerRoutes() {
         $app = new App;
 
+        $corsMiddleware = function (Request $request, Response $response, $next) {
+            // Adiciona os cabeçalhos CORS
+            $response = $response
+                ->withHeader('X-Type', 'api')
+                ->withHeader('Access-Control-Allow-Origin', '*')
+                ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
+                ->withHeader('Access-Control-Allow-Headers', 'X-Api-Key, Origin, X-Requested-With, Content-Type, Accept, Authorization, X-Type');
+
+            if ($request->getMethod() === 'OPTIONS') {
+                return $response;
+            }
+
+            // Chama o próximo middleware
+            $response = $next($request, $response);
+
+            return $response;
+        };
+
+        $app->add($corsMiddleware);
+
         $app->group('/api', function () use ($app) {
             $app->get('/vagas', function (Request $request, Response $response, array $args) {
                 $objVaga = new AbstractController();
@@ -65,25 +85,7 @@ class ApiRoutes {
             });
         })->add(new ApiKeyMiddleware());
 
-        $corsMiddleware = function (Request $request, Response $response, $next) {
-            // Adiciona os cabeçalhos CORS
-            $response = $response
-                ->withHeader('X-Type', 'api')
-                ->withHeader('Access-Control-Allow-Origin', 'http://localhost:8080')
-                ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
-                ->withHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Api-Key');
-
-            if ($request->getMethod() === 'OPTIONS') {
-                return $response;
-            }
-
-            // Chama o próximo middleware
-            $response = $next($request, $response);
-
-            return $response;
-        };
-
-        $app->add($corsMiddleware);
+       
         $app->run();
     }
 }

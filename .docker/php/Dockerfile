@@ -5,6 +5,8 @@ RUN docker-php-ext-install pdo_mysql mysqli
 
 # Habilita o módulo rewrite do Apache
 RUN a2enmod rewrite
+# Habilitar o módulo headers_module
+RUN a2enmod headers
 
 # Define a document root do Apache
 ENV APACHE_DOCUMENT_ROOT /var/www/html/

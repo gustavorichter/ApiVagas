@@ -8,5 +8,5 @@ $xType = isset($headers['X-Type']) ? $headers['X-Type'] : '';
 if ($xType === 'api') {
     $apiRoutes = new ApiRoutes();
 } else {
-    echo 'site';
+    phpinfo();
 }

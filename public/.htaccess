@@ -6,5 +6,5 @@ RewriteRule . index.php [L]
 <IfModule mod_headers.c>
     Header set Access-Control-Allow-Origin "*"
     Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE"
-    Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+    Header set Access-Control-Allow-Headers "X-Api-Key, Origin, X-Requested-With, Content-Type, Accept, Authorization, X-Type"
 </IfModule>
