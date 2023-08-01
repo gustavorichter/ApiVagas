@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Session;
+namespace Vagas\Session;
 
 class Login {
 

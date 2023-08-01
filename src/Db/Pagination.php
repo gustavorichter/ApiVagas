@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Db;
+namespace Vagas\Db;
 
 class Pagination {
     /**

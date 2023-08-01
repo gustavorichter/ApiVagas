@@ -1,9 +1,9 @@
 <?php
 
-namespace Src\Routes;
+namespace Vagas\Routes;
 
-use Src\Controllers\AbstractController;
-use Src\Providers\ApiKeyMiddleware;
+use Vagas\Controllers\AbstractController;
+use Vagas\Providers\ApiKeyMiddleware;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use Slim\App;
@@ -84,8 +84,6 @@ class ApiRoutes {
                 }
             });
         })->add(new ApiKeyMiddleware());
-
-       
         $app->run();
     }
 }

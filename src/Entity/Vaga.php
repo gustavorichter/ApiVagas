@@ -1,8 +1,8 @@
 <?php
 
-namespace Src\Entity;
+namespace Vagas\Entity;
 
-use Src\Db\Database;
+use Vagas\Db\Database;
 
 use \PDO;
 

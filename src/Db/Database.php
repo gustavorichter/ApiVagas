@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Db;
+namespace Vagas\Db;
 
 use \PDO;
 use PDOException;

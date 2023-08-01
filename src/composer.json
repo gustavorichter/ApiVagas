@@ -2,7 +2,7 @@
     "name": "dev/vagas",
     "autoload": {
         "psr-4": {
-            "src\\": "src/"
+            "Vagas\\": "src/"
         },
         "classmap": [
             "Controllers",

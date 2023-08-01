@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace Vagas\Entity;
 
 use \App\Db\Database;
 use \PDO;

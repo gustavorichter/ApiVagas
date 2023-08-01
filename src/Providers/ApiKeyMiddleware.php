@@ -1,8 +1,8 @@
 <?php
 
-namespace Src\Providers;
+namespace Vagas\Providers;
 
-use Src\Providers\AbstractService;
+use Vagas\Providers\AbstractService;
 
 class ApiKeyMiddleware {
     /**

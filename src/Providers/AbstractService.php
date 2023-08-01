@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Providers;
+namespace Vagas\Providers;
 
 class AbstractService {
     /**

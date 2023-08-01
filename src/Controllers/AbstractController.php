@@ -1,9 +1,9 @@
 <?php
 
-namespace Src\Controllers;
+namespace Vagas\Controllers;
 
-use Src\Entity\Vaga;
-use Src\Db\Database;
+use Vagas\Entity\Vaga;
+use Vagas\Db\Database;
 
 class AbstractController {
 
