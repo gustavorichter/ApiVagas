@@ -12,6 +12,7 @@ services:
       - ./src:/var/www/html/src
       - ./public:/var/www/html/public
       - ./99-xdebug.ini:/usr/local/etc/php/conf.d/99-xdebug.ini
+      - ./xdebug:/tmp/xdebug/profiler
     ports:
       - 9090:80
 #      - 443:443

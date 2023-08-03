@@ -3,3 +3,4 @@
 .docker/apache/server-key.pem
 .docker/apache/error.log
 .docker/apache/other_vhosts_access.log
+xdebug
