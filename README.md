@@ -1,5 +1,6 @@
 # Projeto Api Vagas
-
+Rodar 'sudo setfacl -m u:MEUUSUARIO:rw /var/run/docker.sock'
+Rodar 'sudo usermod -aG docker MEUUSUARIO'
 
 #### 1. Run Docker
 
